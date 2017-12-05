@@ -23,6 +23,7 @@ void ElectricalInterface::initializePWM(int freq = 25000) {
 
 bool ElectricalInterface::getEncoderPosition(encoder_req_t &req, encoder_res_t &res) {
     res.value = this->position;
+    res.timestamp = ros::Time::now();
     ROS_INFO("[electrical_io] Sent encoder value [%ld]", (long) res.value);
 
     return true;
